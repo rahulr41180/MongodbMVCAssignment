@@ -11,7 +11,9 @@ router.get("", async(req,res) =>
 {
     try
     {
-        const Batch = await Student1.find().lean().exec();
+        const Batch = await Batch1.find()
+        .populate({path : "StudentId", select : {UserId : 1}})
+        .lean().exec();
 
         return res.status(200).send({Batch : Batch});
     }

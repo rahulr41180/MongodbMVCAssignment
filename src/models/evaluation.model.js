@@ -2,11 +2,11 @@
 const mongoose = require("mongoose");
 
 const EvaluationSchema = mongoose.Schema({
-    date_of_evaluation : {type : Date, required : true},
+    date_of_evaluation : {type : String, required : true},
     InstructorId : 
     {
         type : mongoose.Schema.Types.ObjectId,
-        ref  : "instructor",
+        ref  : "user",
         required : true,
     },
     BatchId : 

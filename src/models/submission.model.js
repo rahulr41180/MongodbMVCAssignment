@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 
 const SubmissionSchema = mongoose.Schema({
+    Marks : {type : Number, required : true},
     EvaluationId : 
     {
         type : mongoose.Schema.Types.ObjectId,

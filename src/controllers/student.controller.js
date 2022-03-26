@@ -39,37 +39,4 @@ router.post("", async(req,res) =>
     }
 })
 
-router.get("/:id", async(req,res) =>
-{
-    try
-    {
-        const Student = await Student1.findById(req.params.id)
-        .populate({path : "UserId"})
-        .lean().exec();
-
-        return res.status(200).send({Student : Student});
-    }
-    catch(error)
-    {
-        return res.status(500).send({message : error.message});
-    }
-})
-
-router.patch("/:id", async(req,res) =>
-{
-    try
-    {
-        const Student = await Student1.findByIdAndUpdate(req.params.id, req.body, {new : true})
-        
-        .populate({path : "UserId"})
-        .lean().exec();
-
-        return res.status(200).send({Student : Student});
-    }
-    catch(error)
-    {
-        return res.status(500).send({message : error.message});
-    }
-})
-
 module.exports = router;
